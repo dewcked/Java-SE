@@ -46,11 +46,4 @@ public class AppTest
         			face == 6);
         
     }
-    public void testDiceGame()
-    {
-    	DiceGame dicegame = new DiceGame();
-    	int dicenum = dicegame.GetDiceNum();
-    	assertTrue( dicenum > 1);
-    	dicegame.play();
-    }
 }
