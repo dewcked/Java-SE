@@ -1,10 +1,5 @@
 package com.dewcked.DiceGameModule;
 
-/**
-* @author  Joseph Gihwon Kwon -- Here comes that dreamer !
-* @date 	2016-10-02
-*/
-
 import java.util.Random;
 
 public class Die {
