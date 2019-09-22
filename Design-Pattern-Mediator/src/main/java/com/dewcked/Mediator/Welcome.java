@@ -20,6 +20,8 @@ public class Welcome {
 		}
 
 		if (response.equals("y")) {
+			Login login = new Login();
+			login.go();
 			Shop shop = new Shop();
 			shop.go();
 		} else {
