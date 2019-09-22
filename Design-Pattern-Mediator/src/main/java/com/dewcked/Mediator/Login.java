@@ -3,6 +3,7 @@ package com.dewcked.Mediator;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.UUID;
 
 public class Login {
 	String id;
@@ -26,11 +27,16 @@ public class Login {
 			System.err.println("Error");
 		}
 
-		/* Here compare with account database */
-		boolean authenticated = true;
-		if(!authenticated) {
+		/* Here comepare with account database */
+		/* Create Session */
+		Session sess = new Session();
+		sess.setSession(UUID.randomUUID().toString());
+		if(sess.getSession() == null) {
 			Exit exit = new Exit();
 			exit.go();
+		} else {
+			Shop shop = new Shop();
+			shop.go();
 		}
 
 	}
