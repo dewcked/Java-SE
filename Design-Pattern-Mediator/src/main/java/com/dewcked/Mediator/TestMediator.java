@@ -6,8 +6,7 @@ public class TestMediator {
 	}
 
 	public TestMediator() {
-		Mediator mediator = new Mediator();
-
-		mediator.getWelcome().go();
+		Welcome welcome = new Welcome();
+		welcome.go();
 	}
 }

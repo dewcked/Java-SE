@@ -3,11 +3,9 @@ package com.dewcked.Mediator;
 import java.io.*;
 
 public class Welcome {
-	Mediator mediator;
 	String response = "n";
 
-	public Welcome(Mediator m) {
-		mediator = m;
+	public Welcome() {
 		System.out.print("KGU 홈쇼핑 방문해 주셔서 감사합니다~\n");
 	}
 
@@ -22,9 +20,11 @@ public class Welcome {
 		}
 
 		if (response.equals("y")) {
-			mediator.handle("welcome.shop");
+			Shop shop = new Shop();
+			shop.go();
 		} else {
-			mediator.handle("welcome.exit");
+			Exit exit = new Exit();
+			exit.go();
 		}
 	}
 }

@@ -3,12 +3,7 @@ package com.dewcked.Mediator;
 import java.io.*;
 
 public class Shop {
-	Mediator mediator;
 	String response = "n";
-
-	public Shop(Mediator m) {
-		mediator = m;
-	}
 
 	public void go() {
 		System.out.print("구매하시겠어요? [y/n]? ");
@@ -21,9 +16,11 @@ public class Shop {
 		}
 
 		if (response.equals("y")) {
-			mediator.handle("shop.purchase");
+			Purchase purchase = new Purchase();
+			purchase.go();
 		} else {
-			mediator.handle("shop.exit");
+			Exit exit = new Exit();
+			exit.go();
 		}
 	}
 }
