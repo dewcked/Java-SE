@@ -16,7 +16,7 @@ public class Mediator {
 	}
 
 	public void handle(String state) {
-		if (state.equals("welcome.shop")) {
+		if (state.equals("login.shop")) {
 			shop.go();
 		} else if (state.equals("welcome.login")) {
 			login.go();

@@ -23,7 +23,6 @@ public class Welcome {
 
 		if (response.equals("y")) {
 			mediator.handle("welcome.login");
-			mediator.handle("welcome.shop");
 		} else {
 			mediator.handle("welcome.exit");
 		}
