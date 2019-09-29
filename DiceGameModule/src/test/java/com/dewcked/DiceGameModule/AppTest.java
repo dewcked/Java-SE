@@ -7,43 +7,33 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+public class AppTest extends TestCase {
+	/**
+	 * Create the test case
+	 *
+	 * @param testName name of the test case
+	 */
+	public AppTest(String testName) {
+		super(testName);
+	}
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+	/**
+	 * @return the suite of tests being tested
+	 */
+	public static Test suite() {
+		return new TestSuite(AppTest.class);
+	}
 
-    /**
-     * Rigorous Test :-)
-     */
-    public void testDie()
-    {
-    	Die die = new Die();
-        assertTrue( die.getFaceValue() == 0 );
-        die.roll();
-        
-        int face = die.getFaceValue();
-        assertTrue( face == 1 ||
-        			face == 2 ||
-        			face == 3 ||
-        			face == 4 ||
-        			face == 5 ||
-        			face == 6);
-        
-    }
+	/**
+	 * Rigorous Test :-)
+	 */
+	public void testDie() {
+		Die die = new Die();
+		assertTrue(die.getFaceValue() == 0);
+		die.roll();
+
+		int face = die.getFaceValue();
+		assertTrue(face == 1 || face == 2 || face == 3 || face == 4 || face == 5 || face == 6);
+
+	}
 }

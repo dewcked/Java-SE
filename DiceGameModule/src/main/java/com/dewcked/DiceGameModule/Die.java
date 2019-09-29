@@ -6,15 +6,15 @@ public class Die {
 
 	private int faceValue;
 
-	public Die(){
+	public Die() {
 		faceValue = 0;
 	}
 
-	public int getFaceValue(){
+	public int getFaceValue() {
 		return faceValue;
 	}
 
-	public void roll(){
+	public void roll() {
 		Random random = new Random();
 		faceValue = random.nextInt(6) + 1;
 	}
