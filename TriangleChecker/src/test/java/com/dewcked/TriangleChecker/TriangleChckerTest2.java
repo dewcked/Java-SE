@@ -75,8 +75,8 @@ public class TriangleChckerTest2 {
         assertEquals("ISOSCELES", type);
     }
     @Test
-    public void testIsoceles10() {
+    public void testInvalid3() {
         final String type = checker.check(200, 100, 100);
-        assertEquals("ISOSCELES", type);
+        assertEquals("INVALID", type);
     }
 }
