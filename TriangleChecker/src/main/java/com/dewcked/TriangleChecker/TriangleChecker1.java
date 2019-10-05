@@ -17,7 +17,7 @@ public class TriangleChecker1 {
 			match = match + 3;
 		}
 		if (match == 0) {
-			if (((a + b) < c) || ((a + c) < b) || ((b + c) < a)) {
+			if (((a + b) <= c) || ((a + c) <= b) || ((b + c) <= a)) {
 				return "INVALID";
 			} else {
 				return "SCALENE";
