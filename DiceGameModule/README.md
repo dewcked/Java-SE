@@ -4,7 +4,7 @@
 
 1. jar 실행 파일을 다음 경로에서 다운로드 받습니다.
 
-경로: [https://github.com/dewcked/Java-SE/raw/good-architecture-v2/archieve/DiceGameModule.jar]
+경로: [https://github.com/dewcked/Java-SE/raw/good-architecture-v3/archieve/DiceGameModule.jar]
 
 2. java jre(버전 J2SE 1.5 이상)를 설치하고, 환경변수를 설정해줍니다.
 
