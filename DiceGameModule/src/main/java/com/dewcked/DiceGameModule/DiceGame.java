@@ -1,5 +1,11 @@
 package com.dewcked.DiceGameModule;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  * @author Joseph Gihwon Kwon -- Here comes that dreamer !
  * @date 2016-10-02
@@ -11,13 +17,13 @@ public class DiceGame {
 	private int score;
 	private Die die1;
 	private Die die2;
-
+	File file;
+	FileWriter writer;
 	public DiceGame() {
 		die1 = new Die();
 		die2 = new Die();
 		score = 0;
 		gamecnt = 10;
-		
 	}
 
 	public void play() {
@@ -39,11 +45,45 @@ public class DiceGame {
 				System.out.println("합이 " + sum + "(" + fv1 + "," + fv2 + ") 이어서 패배");
 			}
 		}
-		if(score>highscore)
+		LoadScore();
+		System.out.print ("~~"+highscore+"~~");
+		if(score>highscore) {
 			highscore = score;
+			WriteScore();
+		}
 		ViewHighScore();
 	}
 	public void ViewHighScore() {
 		System.out.println("현재 체고 점수: " + highscore);
+	}
+	public void LoadScore() {
+		BufferedReader bReader = null;
+        try {
+        	String s;
+            File file = new File("score.txt");
+            bReader = new BufferedReader(new FileReader(file));
+            // 더이상 읽어들일게 없을 때까지 읽어들이게 합니다.
+            while((s = bReader.readLine()) != null);
+            if(s != null)
+            	highscore = Integer.parseInt(s);
+        } catch(IOException e) {
+        	return;
+        }
+	}
+	public void WriteScore() {
+		file = new File("score.txt");
+		try {
+            writer = new FileWriter(file, false);
+            writer.write(""+highscore);
+            writer.flush();
+        } catch(IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if(writer != null) writer.close();
+            } catch(IOException e) {
+                e.printStackTrace();
+            }
+        }
 	}
 }
