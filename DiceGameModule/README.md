@@ -24,7 +24,7 @@
 
 2. egit 을 이용하여 https://github.com/dewcked/Java-SE/ 리포지토리를 clone 합니다.
 
-3. Eclipse 안의 git branch 중에서 good-architecture-v2 를 체크아웃합니다.
+3. Eclipse 안의 git branch 중에서 good-architecture-v3 를 체크아웃합니다.
 
 4. Eclipse 우측 상단의 Open perspective 버튼을 눌러 Java (default)를 선택하고, 옆에 같은 모양의 버튼을 누릅니다.
 
