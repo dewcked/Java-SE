@@ -14,14 +14,8 @@ public class App
     	CalcGap();
     }
     public static void CalcGap() {
-    	/**
-         * TODO: 두 날짜(YYYYMMDD)의 차이일자를 구한다.
-    	 * TODO: 특정일자의 총 일수를 구한다.
-    	 *   전년도까지의 총 일수를 구한다.
-    	 *   전월까지의 총 일수를 구한다.
-    	 *   해당일자까지의 총 일수를 구한다.
-    	 */
-    	int first, second;
+
+    	int first, second, result;
     	String operator;
     	Scanner s = new Scanner(System.in);
     	System.out.println("다음과 같은 형식으로 입력해주세요.");
@@ -34,7 +28,8 @@ public class App
 				throw new InputMismatchException();
 			}
 			second = s.nextInt();
-			System.out.println(Integer.toString(first) + " - " + Integer.toString(second) + " = " + Integer.toString(first-second));
+			result = SubDate.sub(Integer.toString(first), Integer.toString(second));
+			System.out.println(Integer.toString(first) + " - " + Integer.toString(second) + " = " + Integer.toString(result));
     	} catch(InputMismatchException e) {
     		System.out.println("입력 형식이 맞지 않습니다.");
     	}
