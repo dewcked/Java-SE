@@ -30,7 +30,7 @@
 
 5. File -> Open project from file system 메뉴를 들어갑니다.
 
-6. Import source 옆 Directory 버튼을 눌러 뜨는 팝업 상단에 %appdata%를 입력하여 %appdata% 경로로 이동한 뒤, User 경로로 이동해줍니다.
+6. Import source 옆 Directory 버튼을 눌러 뜨는 팝업 상단 경로에 %UserProfile%을 입력하여 이동해줍니다.
 
 7. User -> git -> 경로를 이동한 뒤 JAVA-SE를 클릭하고 폴더 선택 버튼을 누릅니다.
 
