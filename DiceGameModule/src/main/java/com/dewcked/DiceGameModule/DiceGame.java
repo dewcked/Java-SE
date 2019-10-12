@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Joseph Gihwon Kwon -- Here comes that dreamer !
@@ -12,21 +14,24 @@ import java.io.IOException;
  */
 
 public class DiceGame {
-	protected static int highscore = 0;
+	private int highscore;
 	private int gamecnt;
 	private int score;
 	private Die die1;
 	private Die die2;
 	File file;
 	FileWriter writer;
+	List<String> prints = new ArrayList<String>();
+	
 	public DiceGame() {
 		die1 = new Die();
 		die2 = new Die();
 		score = 0;
 		gamecnt = 10;
+		highscore = 0;
 	}
 
-	public void play() {
+	public List<String> play() {
 		int fv1;
 		int fv2;
 		int sum;
@@ -39,22 +44,22 @@ public class DiceGame {
 			sum = fv1 + fv2;
 
 			if (sum == 7) {
-				System.out.println("합이 " + sum + "(" + fv1 + "," + fv2 + ") 이어서 승리");
+				prints.add("합이 " + sum + "(" + fv1 + "," + fv2 + ") 이어서 승리");
 				score += 10;
 			} else {
-				System.out.println("합이 " + sum + "(" + fv1 + "," + fv2 + ") 이어서 패배");
+				prints.add("합이 " + sum + "(" + fv1 + "," + fv2 + ") 이어서 패배");
 			}
 		}
 		LoadScore();
-		System.out.print ("~~"+highscore+"~~");
 		if(score>highscore) {
 			highscore = score;
 			WriteScore();
 		}
 		ViewHighScore();
+		return prints;
 	}
 	public void ViewHighScore() {
-		System.out.println("현재 체고 점수: " + highscore);
+		prints.add("현재 체고 점수: " + highscore);
 	}
 	public void LoadScore() {
 		BufferedReader bReader = null;
@@ -63,7 +68,7 @@ public class DiceGame {
             File file = new File("score.txt");
             bReader = new BufferedReader(new FileReader(file));
             // 더이상 읽어들일게 없을 때까지 읽어들이게 합니다.
-            while((s = bReader.readLine()) != null);
+            s = bReader.readLine();
             if(s != null)
             	highscore = Integer.parseInt(s);
         } catch(IOException e) {
