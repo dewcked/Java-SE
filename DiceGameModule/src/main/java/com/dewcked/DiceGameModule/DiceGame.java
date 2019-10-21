@@ -22,6 +22,7 @@ public class DiceGame {
 	File file;
 	FileWriter writer;
 	List<String> prints = new ArrayList<String>();
+	DBManager dbm;
 	
 	public DiceGame() {
 		die1 = new Die();
@@ -29,6 +30,7 @@ public class DiceGame {
 		score = 0;
 		gamecnt = 10;
 		highscore = 0;
+		dbm = new DBManager();
 	}
 
 	public List<String> play() {
@@ -50,45 +52,15 @@ public class DiceGame {
 				prints.add("합이 " + sum + "(" + fv1 + "," + fv2 + ") 이어서 패배");
 			}
 		}
-		LoadScore();
+		highscore = dbm.LoadScore();
 		if(score>highscore) {
 			highscore = score;
-			WriteScore();
+			dbm.WriteScore(highscore);
 		}
 		ViewHighScore();
 		return prints;
 	}
 	public void ViewHighScore() {
 		prints.add("현재 체고 점수: " + highscore);
-	}
-	public void LoadScore() {
-		BufferedReader bReader = null;
-        try {
-        	String s;
-            File file = new File("score.txt");
-            bReader = new BufferedReader(new FileReader(file));
-            // 더이상 읽어들일게 없을 때까지 읽어들이게 합니다.
-            s = bReader.readLine();
-            if(s != null)
-            	highscore = Integer.parseInt(s);
-        } catch(IOException e) {
-        	return;
-        }
-	}
-	public void WriteScore() {
-		file = new File("score.txt");
-		try {
-            writer = new FileWriter(file, false);
-            writer.write(""+highscore);
-            writer.flush();
-        } catch(IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if(writer != null) writer.close();
-            } catch(IOException e) {
-                e.printStackTrace();
-            }
-        }
 	}
 }
